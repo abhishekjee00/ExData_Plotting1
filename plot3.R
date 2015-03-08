@@ -1,5 +1,17 @@
-setwd("~/GitHub/ExData_Plotting1")
+setwd("~/GitHub/ExData_Plotting1/")
+## Download file, create folder if it does not exists then down load the file and unzip
+if (!file.exists("data")) {
+  dir.create("data")
+}
 
+setwd("~/GitHub/ExData_Plotting1/data")
+if (!file.exists("household_power_consumption.txt")) {
+  fileURL <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
+  download.file(fileURL, destfile = "household_power_consumption.zip", method = "curl")
+  unzip("household_power_consumption.zip")  
+}
+
+setwd("~/GitHub/ExData_Plotting1")
 library("dplyr")
 ## Load "Household Power Consumption" data
 ## Filter records for the two dates 2007-02-01 & 2007-02-02
